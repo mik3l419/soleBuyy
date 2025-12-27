@@ -51,7 +51,7 @@ export default function DashboardPage() {
       case 'failed':
         return <XCircle className="w-5 h-5 text-red-500" />;
       default:
-        return <Clock className="w-5 h-5 text-yellow-500" />;
+        return <Clock className="w-5 h-5 text-blue-500" />;
     }
   };
 
@@ -62,7 +62,7 @@ export default function DashboardPage() {
       case 'failed':
         return 'Failed';
       default:
-        return 'Pending';
+        return 'Processing';
     }
   };
 
@@ -73,7 +73,7 @@ export default function DashboardPage() {
       case 'failed':
         return 'bg-red-500/10 text-red-500 border-red-500/30';
       default:
-        return 'bg-yellow-500/10 text-yellow-500 border-yellow-500/30';
+        return 'bg-blue-500/10 text-blue-500 border-blue-500/30';
     }
   };
 
