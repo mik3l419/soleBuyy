@@ -147,7 +147,7 @@ export default function CheckoutModal({ provider, bundle, recipientNumber, onClo
             </div>
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">Payment Successful!</h2>
-              <p className="text-gray-400">Your order has been placed successfully and your bundle reflect within 24 hours!</p>
+              <p className="text-gray-400">Your order has been placed successfully and your bundle will reflect within 24 hours!</p>
             </div>
             <div className="bg-gray-800/50 rounded-xl p-4 sm:p-6 space-y-3 text-left">
               <div className="flex justify-between text-sm">
