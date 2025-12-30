@@ -94,8 +94,8 @@ export default function HomePage() {
       {/* Providers Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
         <div className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">⚠️NOTICE⚠️</h2>
-          <p className="text-gray-400 text-sm sm:text-base mt-2">SITE UNDER MAINTENANCE!</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">Welcome💫</h2>
+          <p className="text-gray-400 text-sm sm:text-base mt-2">Choose from MTN, Telecel and AirtelTigo</p>
         </div>
 
         <div className="space-y-6">
