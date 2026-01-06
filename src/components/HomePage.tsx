@@ -55,8 +55,11 @@ const providers: Provider[] = [
       { id: 'at-7', name: 'Monthly Premium', dataAmount: '7GB', validity: '30 Days', price: 27.50 },
       { id: 'at-8', name: 'Monthly Ultra', dataAmount: '8GB', validity: '30 Days', price: 31.00 },
     ]
-  }*Chooseexport default function HomePage() {
-  return (
+  }*/
+];
+
+  export default function HomePage() {
+    return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black pt-20">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
