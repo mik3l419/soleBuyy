@@ -54,7 +54,8 @@ const providers: Provider[] = [
       { id: 'at-6', name: 'Monthly Standard', dataAmount: '6GB', validity: '30 Days', price: 23.00 },
       { id: 'at-7', name: 'Monthly Premium', dataAmount: '7GB', validity: '30 Days', price: 27.50 },
       { id: 'at-8', name: 'Monthly Ultra', dataAmount: '8GB', validity: '30 Days', price: 31.00 },
-    ]Site
+    ]
+  }
 ];
 
   export default function HomePage() {
@@ -94,7 +95,7 @@ const providers: Provider[] = [
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
         <div className="mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">Welcome💫</h2>
-          <p className="text-gray-400 text-sm sm:text-base mt-2"></p>
+          <p className="text-gray-400 text-sm sm:text-base mt-2">DELIVERY IS NOT INSTANT!</p>
         </div>
 
         <div className="space-y-6">
