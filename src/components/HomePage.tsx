@@ -47,8 +47,8 @@ const providers: Provider[] = [
     color: '#ED1C24',
     bundles: [
       { id: 'at-1', name: 'Hourly Bundle', dataAmount: '1GB', validity: '1 Hour', price: 4.70 },
-      { id: 'at-2', name: 'Daily Lite', dataAmount: '2GB', validity: '24 Hours', price: 7.90 },
-      { id: 'at-3', name: 'Weekly Mini', dataAmount: '3GB', validity: '7 Days', price: 11.50 },
+      { id: 'at-2', name: 'Daily Lite', dataAmount: '2GB', validity: '24 Hours', price: 8.90 },
+      { id: 'at-3', name: 'Weekly Mini', dataAmount: '3GB', validity: '7 Days', price: 12.50 },
       { id: 'at-4', name: 'Weekly Plus', dataAmount: '4GB', validity: '7 Days', price: 16.00 },
       { id: 'at-5', name: 'Monthly Lite', dataAmount: '5GB', validity: '30 Days', price: 20.00 },
       { id: 'at-6', name: 'Monthly Standard', dataAmount: '6GB', validity: '30 Days', price: 23.00 },
