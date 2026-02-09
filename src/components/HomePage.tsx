@@ -10,9 +10,9 @@ const providers: Provider[] = [
     color: '#FFCC00',
     bundles: [
       { id: 'mtn-1', name: 'Starter Bundle', dataAmount: '1GB', validity: '30 Days', price: 4.80 },
-      { id: 'mtn-2', name: 'Mini Bundle', dataAmount: '2GB', validity: '30 Days', price: 9.00 },
+      { id: 'mtn-2', name: 'Mini Bundle', dataAmount: '2GB', validity: '30 Days', price: 9.60 },
       { id: 'mtn-3', name: 'Basic Bundle', dataAmount: '3GB', validity: '30 Days', price: 13.50 },
-      { id: 'mtn-4', name: 'Standard Bundle', dataAmount: '4GB', validity: '30 Days', price: 18.70 },
+      { id: 'mtn-4', name: 'Standard Bundle', dataAmount: '4GB', validity: '30 Days', price: 19.20 },
       { id: 'mtn-5', name: 'Plus Bundle', dataAmount: '5GB', validity: '30 Days', price: 23.70 },
       { id: 'mtn-6', name: 'Premium Bundle', dataAmount: '6GB', validity: '30 Days', price: 26.70 },
       { id: 'mtn-7', name: 'Super Bundle', dataAmount: '8GB', validity: '30 Days', price: 37.70 },
