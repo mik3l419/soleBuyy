@@ -14,7 +14,7 @@ const providers: Provider[] = [
       { id: 'mtn-3', name: 'Basic Bundle', dataAmount: '3GB', validity: '30 Days', price: 13.50 },
       { id: 'mtn-4', name: 'Standard Bundle', dataAmount: '4GB', validity: '30 Days', price: 19.20 },
       { id: 'mtn-5', name: 'Plus Bundle', dataAmount: '5GB', validity: '30 Days', price: 23.70 },
-      { id: 'mtn-6', name: 'Premium Bundle', dataAmount: '6GB', validity: '30 Days', price: 26.70 },
+      { id: 'mtn-6', name: 'Premium Bundle', dataAmount: '6GB', validity: '30 Days', price: 27.70 },
       { id: 'mtn-7', name: 'Super Bundle', dataAmount: '8GB', validity: '30 Days', price: 37.70 },
       { id: 'mtn-8', name: 'Max Bundle', dataAmount: '10GB', validity: '30 Days', price: 48.00 },
       { id: 'mtn-9', name: 'Ultra Bundle', dataAmount: '15GB', validity: '30 Days', price: 70.50 },
