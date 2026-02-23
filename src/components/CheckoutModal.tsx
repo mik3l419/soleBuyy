@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X, CheckCircle2, AlertCircle } from 'lucide-react';
+import { X, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { Provider, Bundle } from '../types';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
@@ -13,7 +13,7 @@ interface CheckoutModalProps {
 
 export default function CheckoutModal({ provider, bundle, recipientNumber, onClose }: CheckoutModalProps) {
   const { user } = useAuth();
-  const [step, setStep] = useState<'payment' | 'success'>('payment');
+  const [step, setStep] = useState<'payment' | 'verifying' | 'success'>('payment');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -77,8 +77,10 @@ export default function CheckoutModal({ provider, bundle, recipientNumber, onClo
             },
           ],
         },
-        callback: function(response: any) {
+        callback: function (response: any) {
           console.log('Payment successful, verifying and creating order...');
+          // Show verifying/loading screen immediately after Paystack closes
+          setStep('verifying');
           const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/verify-payment`;
           fetch(apiUrl, {
             method: 'POST',
@@ -90,24 +92,26 @@ export default function CheckoutModal({ provider, bundle, recipientNumber, onClo
               reference: response.reference,
             }),
           })
-          .then(res => res.json())
-          .then(verifyData => {
-            console.log('Verification response:', verifyData);
-            if (verifyData.verified) {
+            .then(res => res.json())
+            .then(verifyData => {
+              console.log('Verification response:', verifyData);
+              if (verifyData.verified) {
+                setLoading(false);
+                setStep('success');
+              } else {
+                setLoading(false);
+                setStep('payment');
+                setError('Payment verification failed. Please contact support.');
+              }
+            })
+            .catch(err => {
               setLoading(false);
-              setStep('success');
-            } else {
-              setLoading(false);
-              setError('Payment verification failed');
-            }
-          })
-          .catch(err => {
-            setLoading(false);
-            setError('Payment verification failed. Please contact support.');
-            console.error('Verification error:', err);
-          });
+              setStep('payment');
+              setError('Payment verification failed. Please contact support.');
+              console.error('Verification error:', err);
+            });
         },
-        onClose: function() {
+        onClose: function () {
           console.log('Payment popup closed');
           setLoading(false);
           setError('Payment cancelled');
@@ -138,7 +142,33 @@ export default function CheckoutModal({ provider, bundle, recipientNumber, onClo
           <X className="w-6 h-6" />
         </button>
 
-        {step === 'success' ? (
+        {step === 'verifying' ? (
+          <div className="p-8 flex flex-col items-center justify-center min-h-[320px] space-y-6">
+            {/* Animated ring */}
+            <div className="relative flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full border-4 border-green-500/20"></div>
+              <div className="absolute w-24 h-24 rounded-full border-4 border-t-green-500 border-r-green-400 border-b-transparent border-l-transparent animate-spin"></div>
+              <div className="absolute">
+                <Loader2 className="w-8 h-8 text-green-500 animate-spin" style={{ animationDuration: '1.5s' }} />
+              </div>
+            </div>
+
+            {/* Text */}
+            <div className="text-center space-y-2">
+              <h2 className="text-xl font-bold text-white">Processing Your Order…</h2>
+              <p className="text-gray-400 text-sm">Please wait while we confirm your payment and prepare your receipt.</p>
+            </div>
+
+            {/* Pulsing dots */}
+            <div className="flex space-x-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+            </div>
+
+            <p className="text-gray-600 text-xs">Do not close this window</p>
+          </div>
+        ) : step === 'success' ? (
           <div className="p-6 sm:p-8 text-center space-y-6">
             <div className="flex justify-center">
               <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center">
