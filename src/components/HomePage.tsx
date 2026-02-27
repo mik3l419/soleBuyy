@@ -94,8 +94,10 @@ const providers: Provider[] = [
       {/* Providers Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
         <div className="mb-6 sm:mb-8">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">WELCOME💫</h2>
-          <p className="text-gray-400 text-sm sm:text-base mt-2">SITE UNDER MAINTENANCE!</p>
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">🛠️SITE UNDER MAINTENANCE!</h2>
+          <p className="text-gray-400 text-sm sm:text-base mt-2">📢Hey there,
+
+There's been a maintenance on the main system leading to some few changes hence the delay in delivery</p>
         </div>
 
         <div className="space-y-6">
