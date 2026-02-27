@@ -97,7 +97,8 @@ const providers: Provider[] = [
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">🛠️SITE UNDER MAINTENANCE!</h2>
           <p className="text-gray-400 text-sm sm:text-base mt-2">📢Hey there,
 
-There's been a maintenance on the main system leading to some few changes hence the delay in delivery</p>
+There's been a maintenance on the main system leading to some few changes hence the delay in delivery. 
+          All orders will surely be delivered, please bear with us.</p>
         </div>
 
         <div className="space-y-6">
