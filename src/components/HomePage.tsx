@@ -102,7 +102,7 @@ const providers: Provider[] = [
   <li>Don’t buy the wrong package. It’s not reversible unless it gets rejected.</li>
   <li>Don’t place double orders for the same MTN number at the same time. One will be rejected and no refund will be provided.</li>
 </ul>
-          <p className="text-gray-400 text-sm sm:text-base mt-2">WE ARE OPEN. DELIVERY IS NOT INSTANT!</p>
+          <p className="text-gray-400 text-sm sm:text-base mt-2">WE ARE OPEN🟢</p>
         </div>
 
         <div className="space-y-6">
