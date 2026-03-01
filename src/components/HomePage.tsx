@@ -99,7 +99,7 @@ const providers: Provider[] = [
   <li>Data bundle delivery is not instant. Some numbers may receive data faster while others take some time.</li>
   <li>Report your order within 24 hours if it’s not received after it’s completed. After 24 hours, we can’t check it.</li>
   <li>Turbonet and Broadband SIM cards are not eligible for this offer.</li>
-  <li>Don’t buy the wrong package. It’s not reversible unless it gets rejected.</li>
+  <li>Don’t buy data bundle to a SIM with negative airtime balance.</li>
   <li>Don’t place double orders for the same MTN number at the same time. One will be rejected and no refund will be provided.</li>
 </ul>
           <p className="text-gray-400 text-sm sm:text-base mt-2">WE ARE OPEN🟢</p>
