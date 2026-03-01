@@ -95,6 +95,13 @@ const providers: Provider[] = [
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-20">
         <div className="mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">WELCOME💫</h2>
+         <ul className="text-gray-400 text-sm sm:text-base mt-2 list-disc pl-5 space-y-2">
+  <li>Data bundle delivery is not instant. Some numbers may receive data faster while others take some time.</li>
+  <li>Report your order within 24 hours if it’s not received after it’s completed. After 24 hours, we can’t check it.</li>
+  <li>Turbonet and Broadband SIM cards are not eligible for this offer.</li>
+  <li>Don’t buy the wrong package. It’s not reversible unless it gets rejected.</li>
+  <li>Don’t place double orders for the same MTN number at the same time. One will be rejected and no refund will be provided.</li>
+</ul>
           <p className="text-gray-400 text-sm sm:text-base mt-2">WE ARE OPEN. DELIVERY IS NOT INSTANT!</p>
         </div>
 
