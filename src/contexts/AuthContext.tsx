@@ -19,6 +19,7 @@ interface AuthContextType {
   signOut: () => Promise<void>;
   updateProfile: (fullName: string) => Promise<{ error: any }>;
   updatePassword: (currentPassword: string, newPassword: string) => Promise<{ error: any }>;
+  resetPassword: (email: string, newPassword: string) => Promise<{ error: any }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -196,11 +197,39 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return { error: { message: error.message || 'Failed to update password' } };
     }
   };
+  const resetPassword = async (email: string, newPassword: string) => {
+    try {
+      const { data: userData, error: fetchError } = await supabase
+        .from('users')
+        .select('id')
+        .eq('email', email)
+        .maybeSingle();
+
+      if (fetchError) throw fetchError;
+
+      if (!userData) {
+        return { error: { message: 'No account found with that email address' } };
+      }
+
+      const newPasswordHash = await hashPassword(newPassword);
+
+      const { error: updateError } = await supabase
+        .from('users')
+        .update({ password_hash: newPasswordHash, updated_at: new Date().toISOString() })
+        .eq('id', userData.id);
+
+      if (updateError) throw updateError;
+
+      return { error: null };
+    } catch (error: any) {
+      return { error: { message: error.message || 'Failed to reset password' } };
+    }
+  };
 
   const isAdmin = user?.is_admin ?? false;
 
   return (
-    <AuthContext.Provider value={{ user, loading, isAdmin, signUp, signIn, signOut, updateProfile, updatePassword }}>
+    <AuthContext.Provider value={{ user, loading, isAdmin, signUp, signIn, signOut, updateProfile, updatePassword, resetPassword }}>
       {children}
     </AuthContext.Provider>
   );
