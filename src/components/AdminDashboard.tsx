@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Users, DollarSign, ShoppingBag, TrendingUp } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { usePageRefresh } from '../hooks/usePageRefresh';
 
 interface Order {
   id: string;
@@ -41,10 +42,10 @@ export default function AdminDashboard() {
   });
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'completed' | 'pending' | 'processing' | 'failed'>('all');
-
+  const refreshKey = usePageRefresh();
   useEffect(() => {
     fetchData();
-  }, [filter]);
+  }, [filter, refreshKey]);
 
   const fetchData = async () => {
     setLoading(true);
