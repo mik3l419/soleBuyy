@@ -178,51 +178,46 @@ export default function AdminDashboard() {
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => setFilter('all')}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
-                    filter === 'all'
-                      ? 'bg-green-500 text-black'
-                      : 'bg-gray-800 text-gray-400 hover:text-white'
-                  }`}
+                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${filter === 'all'
+                    ? 'bg-green-500 text-black'
+                    : 'bg-gray-800 text-gray-400 hover:text-white'
+                    }`}
                 >
                   All
                 </button>
                 <button
                   onClick={() => setFilter('completed')}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
-                    filter === 'completed'
-                      ? 'bg-green-500 text-black'
-                      : 'bg-gray-800 text-gray-400 hover:text-white'
-                  }`}
+                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${filter === 'completed'
+                    ? 'bg-green-500 text-black'
+                    : 'bg-gray-800 text-gray-400 hover:text-white'
+                    }`}
                 >
                   Completed
                 </button>
                 <button
                   onClick={() => setFilter('pending')}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
-                    filter === 'pending'
-                      ? 'bg-green-500 text-black'
-                      : 'bg-gray-800 text-gray-400 hover:text-white'
-                  }`}
+                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${filter === 'pending'
+                    ? 'bg-green-500 text-black'
+                    : 'bg-gray-800 text-gray-400 hover:text-white'
+                    }`}
                 >
                   Pending
                 </button>
                 <button
                   onClick={() => setFilter('processing')}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
-                    filter === 'processing'
-                      ? 'bg-green-500 text-black'
-                      : 'bg-gray-800 text-gray-400 hover:text-white'
-                  }`}
+                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${filter === 'processing'
+                    ? 'bg-green-500 text-black'
+                    : 'bg-gray-800 text-gray-400 hover:text-white'
+                    }`}
                 >
                   Processing
                 </button>
                 <button
                   onClick={() => setFilter('failed')}
-                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
-                    filter === 'failed'
-                      ? 'bg-green-500 text-black'
-                      : 'bg-gray-800 text-gray-400 hover:text-white'
-                  }`}
+                  className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${filter === 'failed'
+                    ? 'bg-green-500 text-black'
+                    : 'bg-gray-800 text-gray-400 hover:text-white'
+                    }`}
                 >
                   Failed
                 </button>
@@ -246,14 +241,14 @@ export default function AdminDashboard() {
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center space-x-3">
                         <div
-                          className="w-10 h-10 rounded flex items-center justify-center flex-shrink-0"
-                          style={{ backgroundColor: `${order.provider_color}20` }}
+                          className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 font-black text-xs tracking-tight select-none"
+                          style={{
+                            backgroundColor: `${order.provider_color}25`,
+                            color: order.provider_color,
+                            border: `1.5px solid ${order.provider_color}50`,
+                          }}
                         >
-                          <img
-                            src={order.provider_logo}
-                            alt={order.provider_name}
-                            className="w-7 h-7 object-contain"
-                          />
+                          {order.provider_name.slice(0, 3).toUpperCase()}
                         </div>
                         <div>
                           <div className="text-sm font-medium text-white">{order.provider_name}</div>
@@ -261,15 +256,14 @@ export default function AdminDashboard() {
                         </div>
                       </div>
                       <span
-                        className={`px-2 py-1 text-xs font-medium rounded-full flex-shrink-0 ${
-                          order.status === 'completed'
-                            ? 'bg-green-500/20 text-green-500'
-                            : order.status === 'processing'
+                        className={`px-2 py-1 text-xs font-medium rounded-full flex-shrink-0 ${order.status === 'completed'
+                          ? 'bg-green-500/20 text-green-500'
+                          : order.status === 'processing'
                             ? 'bg-blue-500/20 text-blue-500'
                             : order.status === 'pending'
-                            ? 'bg-yellow-500/20 text-yellow-500'
-                            : 'bg-red-500/20 text-red-500'
-                        }`}
+                              ? 'bg-yellow-500/20 text-yellow-500'
+                              : 'bg-red-500/20 text-red-500'
+                          }`}
                       >
                         {order.status}
                       </span>
@@ -373,14 +367,14 @@ export default function AdminDashboard() {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center space-x-2">
                             <div
-                              className="w-8 h-8 rounded flex items-center justify-center"
-                              style={{ backgroundColor: `${order.provider_color}20` }}
+                              className="w-8 h-8 rounded-lg flex items-center justify-center font-black text-xs tracking-tight select-none flex-shrink-0"
+                              style={{
+                                backgroundColor: `${order.provider_color}25`,
+                                color: order.provider_color,
+                                border: `1.5px solid ${order.provider_color}50`,
+                              }}
                             >
-                              <img
-                                src={order.provider_logo}
-                                alt={order.provider_name}
-                                className="w-6 h-6 object-contain"
-                              />
+                              {order.provider_name.slice(0, 3).toUpperCase()}
                             </div>
                             <span className="text-sm text-white">{order.provider_name}</span>
                           </div>
@@ -396,15 +390,14 @@ export default function AdminDashboard() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span
-                            className={`px-2 py-1 text-xs font-medium rounded-full ${
-                              order.status === 'completed'
-                                ? 'bg-green-500/20 text-green-500'
-                                : order.status === 'processing'
+                            className={`px-2 py-1 text-xs font-medium rounded-full ${order.status === 'completed'
+                              ? 'bg-green-500/20 text-green-500'
+                              : order.status === 'processing'
                                 ? 'bg-blue-500/20 text-blue-500'
                                 : order.status === 'pending'
-                                ? 'bg-yellow-500/20 text-yellow-500'
-                                : 'bg-red-500/20 text-red-500'
-                            }`}
+                                  ? 'bg-yellow-500/20 text-yellow-500'
+                                  : 'bg-red-500/20 text-red-500'
+                              }`}
                           >
                             {order.status}
                           </span>
