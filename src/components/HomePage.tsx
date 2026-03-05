@@ -1,6 +1,8 @@
-import { Zap, Clock, TrendingUp } from 'lucide-react';
+import { useEffect } from 'react';
 import { Provider } from '../types';
 import ProviderCard from './ProviderCard';
+import { Zap, Clock, TrendingUp } from 'lucide-react';
+
 
 const providers: Provider[] = [
   {
@@ -59,6 +61,16 @@ const providers: Provider[] = [
 ];
 
   export default function HomePage() {
+    useEffect(() => {
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        window.location.reload();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
+
     return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black pt-20">
       {/* Hero Section */}
