@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Package, Clock, CheckCircle2, XCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
-
+import { usePageRefresh } from '../hooks/usePageRefresh';
 interface Order {
   id: string;
   provider_name: string;
@@ -20,12 +20,13 @@ export default function DashboardPage() {
   const { user } = useAuth();
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
+  const refreshKey = usePageRefresh();
 
   useEffect(() => {
     if (user) {
       loadOrders();
     }
-  }, [user]);
+  }, [user, refreshKey]);
 
   const loadOrders = async () => {
     try {
