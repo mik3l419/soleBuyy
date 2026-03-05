@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Package, Clock, CheckCircle2, XCircle, Receipt } from 'lucide-react';
+import { Package, Clock, CheckCircle2, XCircle } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 
@@ -113,14 +113,15 @@ export default function DashboardPage() {
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start space-x-4 flex-1">
                       <div
-                        className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
-                        style={{ backgroundColor: `${order.provider_color}20` }}
+                        className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 font-black text-lg tracking-tight select-none"
+                        style={{
+                          backgroundColor: `${order.provider_color}25`,
+                          color: order.provider_color,
+                          border: `1.5px solid ${order.provider_color}50`,
+                          letterSpacing: '-0.03em',
+                        }}
                       >
-                        <img
-                          src={order.provider_logo}
-                          alt={order.provider_name}
-                          className="w-8 h-8 object-contain"
-                        />
+                        {order.provider_name.slice(0, 3).toUpperCase()}
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="text-lg font-bold text-white mb-1">{order.provider_name}</h3>
