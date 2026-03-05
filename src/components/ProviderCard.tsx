@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ChevronDown, ChevronUp, Smartphone, ShoppingCart } from 'lucide-react';
+import { ChevronDown, ChevronUp, Smartphone } from 'lucide-react';
 import { Provider, Bundle } from '../types';
 import CheckoutModal from './CheckoutModal';
 import { useAuth } from '../contexts/AuthContext';
@@ -23,6 +23,10 @@ export default function ProviderCard({ provider }: ProviderCardProps) {
   const handleBuyBundle = (bundle: Bundle) => {
     if (!recipientNumber.trim()) {
       alert('Please enter a recipient phone number');
+      return;
+    }
+    if (recipientNumber.length !== 10) {
+      alert('Please enter a valid 10-digit phone number');
       return;
     }
     setSelectedBundle(bundle);
@@ -77,11 +81,28 @@ export default function ProviderCard({ provider }: ProviderCardProps) {
                 <input
                   type="tel"
                   value={recipientNumber}
-                  onChange={(e) => setRecipientNumber(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-colors"
+                  onChange={(e) => {
+                    const digits = e.target.value.replace(/\D/g, '').slice(0, 10);
+                    setRecipientNumber(digits);
+                  }}
+                  maxLength={10}
+                  className={`w-full pl-10 pr-16 py-3 bg-gray-800 border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-1 transition-colors ${recipientNumber.length > 0 && recipientNumber.length < 10
+                    ? 'border-red-500 focus:border-red-500 focus:ring-red-500'
+                    : recipientNumber.length === 10
+                      ? 'border-green-500 focus:border-green-500 focus:ring-green-500'
+                      : 'border-gray-700 focus:border-green-500 focus:ring-green-500'
+                    }`}
                   placeholder="e.g., 0241234567"
                 />
+                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-mono text-gray-500">
+                  {recipientNumber.length}/10
+                </span>
               </div>
+              {recipientNumber.length > 0 && recipientNumber.length < 10 && (
+                <p className="text-red-500 text-xs mt-1.5">
+                  Phone number must be exactly 10 digits ({10 - recipientNumber.length} remaining)
+                </p>
+              )}
               <p className="text-gray-400 text-xs mt-2">Enter the phone number to receive the bundle</p>
             </div>
 
