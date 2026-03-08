@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { usePageRefresh } from '../hooks/usePageRefresh';
 import { Provider } from '../types';
 import ProviderCard from './ProviderCard';
 import { Zap, Clock, TrendingUp } from 'lucide-react';
@@ -61,16 +62,12 @@ const providers: Provider[] = [
 ];
 
   export default function HomePage() {
+    const refreshKey = usePageRefresh(5 * 60 * 1000);
     useEffect(() => {
-    const handleVisibility = () => {
-      if (document.visibilityState === 'visible') {
-        window.location.reload();
-      }
-    };
-    document.addEventListener('visibilitychange', handleVisibility);
-    return () => document.removeEventListener('visibilitychange', handleVisibility);
-  }, []);
-
+    if (refreshKey > 0) {
+      window.location.reload();
+    }
+  }, [refreshKey]);
     return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black pt-20">
       {/* Hero Section */}
