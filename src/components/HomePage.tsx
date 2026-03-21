@@ -110,6 +110,7 @@ const providers: Provider[] = [
   <li>Turbonet and Broadband SIM cards are not eligible for this offer.</li>
   <li>Don’t buy data bundle to a SIM with negative airtime balance.</li>
   <li>Don’t place double orders for the same MTN number at the same time. One will be rejected and no refund will be provided.</li>
+  <li>Sometimes data bundles get delivered without an SMS notification. Before you report an issue, double-check your bundle balance.</li>         
 </ul>
           <p className="text-gray-400 text-sm sm:text-base mt-2">🚧SITE CURRENTLY UNDER A SHORT MAINTENANCE🚧</p>
         </div>
