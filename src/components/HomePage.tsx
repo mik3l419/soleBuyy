@@ -58,7 +58,7 @@ const providers: Provider[] = [
       { id: 'at-7', name: 'Monthly Premium', dataAmount: '7GB', validity: '30 Days', price: 27.50 },
       { id: 'at-8', name: 'Monthly Ultra', dataAmount: '8GB', validity: '30 Days', price: 31.00 },
     ]
-  }
+  }*/
 ];
 
   export default function HomePage() {
@@ -111,7 +111,7 @@ const providers: Provider[] = [
   <li>Don’t buy data bundle to a SIM with negative airtime balance.</li>
   <li>Don’t place double orders for the same MTN number at the same time. One will be rejected and no refund will be provided.</li>
   <li>Sometimes data bundles get delivered without an SMS notification. Before you report an issue, double-check your bundle balance.</li>         
-</ul>*/ 
+</ul>
           <p className="text-gray-400 text-sm sm:text-base mt-2">DELIVERY CURRENTLY ON HOLD!🔴</p>
         </div>
 
